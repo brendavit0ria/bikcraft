@@ -18,10 +18,10 @@
   margin-bottom: 32px;
 } 
 
-.footer-contato li:nth-child(even) :after {
+.footer-contato li:nth-child(even):after {
   content: "";
   display: block;
-  max-width: 100%;
+  max-width: 360px;
   height: 2px;
   background: var(--cor-11);
   margin-top: 16px;
