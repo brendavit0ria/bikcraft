@@ -17,10 +17,29 @@ const parametros = new URLSearchParams (location.search);
 
 function ativarProduto(parametro) {
     const elemento = document.getElementById(parametro);
-    if(elemento) {
+    if (elemento) {
         elemento.checked = true;
     }
-    console.log(parametro);
 }
 
 parametros.forEach(ativarProduto);
+
+// PERGUNTAS FREQUENTES 
+
+const perguntas = document.querySelectorAll(".perguntas button");
+
+function ativarPerguntas(event) {
+    const pergunta = event.currentTarget;
+    const controls = pergunta.getAttribute("aria-controls");
+    const resposta = document.getElementById(controls);
+
+    resposta.classList.toggle("ativa");
+    const ativa = resposta.classList.contains("ativa")
+    pergunta.setAttribute("aria-expanded", ativa);
+}
+
+function eventosPerguntas(pergunta) {
+    pergunta.addEventListener("click", ativarPerguntas);
+}
+
+perguntas.forEach(eventosPerguntas);
